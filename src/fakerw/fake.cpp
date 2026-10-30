@@ -604,8 +604,9 @@ RwVideoMode *RwEngineGetVideoModeInfo(RwVideoMode *modeinfo, RwInt32 modeIndex)
 	{ return Engine::getVideoModeInfo(modeinfo, modeIndex); }
 RwInt32 RwEngineGetCurrentVideoMode(void) { return Engine::getCurrentVideoMode(); }
 RwBool RwEngineSetVideoMode(RwInt32 modeIndex) { return Engine::setVideoMode(modeIndex); }
-RwInt32 RwEngineGetRenderScale(void) { return Engine::getRenderScale(); }
-RwBool RwEngineSetRenderScale(RwInt32 percent) { return Engine::setRenderScale(percent); }
+static RwInt32 gRenderScale = 100;
+RwInt32 RwEngineGetRenderScale(void) { return gRenderScale; }
+RwBool RwEngineSetRenderScale(RwInt32 percent) { gRenderScale = percent; return true; }
 RwInt32 RwEngineGetTextureMemorySize(void);
 RwInt32 RwEngineGetMaxTextureSize(void);
 
