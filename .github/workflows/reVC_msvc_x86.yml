@@ -15,6 +15,7 @@ jobs:
   build:
     runs-on: windows-latest
     strategy:
+      fail-fast: false
       matrix:
         platform: [win-x86-librw_d3d9-mss, win-x86-librw_gl3_glfw-mss, win-x86-librw_d3d9-oal, win-x86-librw_gl3_glfw-oal]
         buildtype: [Debug, Release, Vanilla]
